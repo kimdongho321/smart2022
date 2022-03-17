@@ -1,5 +1,5 @@
 import './App.css';
-import faker, { Faker } from '@faker-js/faker';
+import faker from '@faker-js/faker';
 import faker_ko from '@faker-js/faker/locale/ko';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -42,18 +42,6 @@ function App() {
       </CardContent>
     </CardActionArea>
   </Card>
-    
-    
-    
-    
-    
-    {/* <div key={index}>
-      <h4>{userData.jobTitle}</h4>
-        <img src={userData.avatar} alt="사용자 프로필용 아바타"></img>
-        <h5>{userData.name}</h5>
-        {userData.email} <br />
-        {userData.phonNo} 
-    </div> */}
   });
 
   const userData = {
