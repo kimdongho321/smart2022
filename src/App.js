@@ -19,6 +19,15 @@ function App() {
     })
 }
 
+
+const userData = {
+  avatar: faker.image.avatar() ,
+  name: `${faker_ko.name.lastName()} ${faker_ko.name.firstName()}`,
+  email: faker.internet.email()  ,
+  jobTitle: faker.name.jobTitle() ,
+  phonNo: faker_ko.phone.phoneNumber()
+}
+
   const userCards = userDatas.map((userData, index) =>{ 
     return <Card sx={{ maxWidth: 345 }}>
     <CardActionArea>
@@ -44,13 +53,6 @@ function App() {
   </Card>
   });
 
-  const userData = {
-    avatar: faker.image.avatar() ,
-    name: `${faker_ko.name.lastName()} ${faker_ko.name.firstName()}`,
-    email: faker.internet.email()  ,
-    jobTitle: faker.name.jobTitle() ,
-    phonNo: faker_ko.phone.phoneNumber()
-  }
   
   return (
     <div className="App">
