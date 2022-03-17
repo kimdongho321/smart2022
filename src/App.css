@@ -1,5 +1,8 @@
 div{
     font-size: 10px;
+    margin:0 auto;
+    margin-left: 10px;
+    margin-top:10px;
 }
 div > img{
     width: 50px;
@@ -10,8 +13,4 @@ div > img{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-}
-
-.css-1ri6ub7-MuiPaper-root-MuiCard-root{
-width: 50%;
 }
