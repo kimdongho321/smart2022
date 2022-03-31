@@ -11,6 +11,8 @@ function WeatherCard(props) {
         :
         WeatherData ?
         <Box>
+            <Typography>{`현재 날씨: ${WeatherData.weather[0].main}`}</Typography>
+            <img src={'http://openweathermap.org/img/wn/'${WeatherData.weather[0].icon}@2x.png`} alt="현재 날씨 아이콘"/>
             <Typography>{`현재온도: ${WeatherData.main.temp}℃`}</Typography>
             <Typography>{`체감온도: ${WeatherData.main.feels_like}℃`}</Typography>
             <Typography>{`최저기온: ${WeatherData.main.temp_min}℃`}</Typography>
