@@ -5,36 +5,18 @@ function WeatherCard(props) {
     console.log(props)
     const {WeatherData, apiError} = props;
 
-    const makeWeatherInfo = () =>{
-        const {temp, feels_like, temp_min, temp_max,pressure,humidity} = WeatherData.main;
-        return <Box>
-            <Typography>{`현재온도: ${temp}℃`}</Typography>
-            <Typography>{`체감온도: ${feels_like}℃`}</Typography>
-            <Typography>{`최저기온: ${temp_min}℃`}</Typography>
-            <Typography>{`최고기온: ${temp_max}℃`}</Typography>
-            <Typography>{`습도: ${humidity}%`}</Typography>
-        </Box>
-    }
-
-/*
- "main": {
-        "temp": 287.97,
-        "feels_like": 286.66,
-        "temp_min": 284.94,
-        "temp_max": 288.02,
-        "pressure": 1023,
-        "humidity": 44
-    }
- */
-
-
-    return
-    <>
+    return <>
     {apiError ? 
         <Typography>{apiError.message}</Typography>
         :
         WeatherData ?
-        {makeWeatherInfo}  
+        <Box>
+            <Typography>{`현재온도: ${WeatherData.main.temp}℃`}</Typography>
+            <Typography>{`체감온도: ${WeatherData.main.feels_like}℃`}</Typography>
+            <Typography>{`최저기온: ${WeatherData.main.temp_min}℃`}</Typography>
+            <Typography>{`최고기온: ${WeatherData.main.temp_max}℃`}</Typography>
+            <Typography>{`습도: ${WeatherData.main.humidity}%`}</Typography>
+        </Box>  
         :
         <Typography>날씨정보 없음</Typography>
     }
