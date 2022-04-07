@@ -1,35 +1,37 @@
-import React, { useState } from 'react';
-import { Grid } from '@mui/material';
-import Pagination from '@mui/material/Pagination';
+import React, { useEffect, useState } from 'react';
+import Grid from '@mui/material/Grid';
+import { Pagination } from '@mui/material';
 import UserCard from './UserCard';
 import { paginate } from '../Utils'
 
-function UserCardList(props) {
-    const pageContentsCount = 9;
+function UserCardList(props){
+    const pageContentsCount = 6;
     const [pageNo, setPageNo] = useState(1);
-    const [currentUserData, setCurrentUserData] = useState(paginate(props.userDatas, pageContentsCount, pageNo));
+    const [currntUserData, setcurrentUserData] = useState(paginate(props.userDatas, pageContentsCount, pageNo));
 
     const handleChangePageNo = (event, value) => {
         setPageNo(value);
-        setCurrentUserData(paginate(props.userDatas, pageContentsCount, value));
-    }
-
-    const userCards = currentUserData.map((userData, idx) => {
+        setcurrentUserData(paginate(props.userDatas, pageContentsCount, value));
+      }
+    console.log(currntUserData);
+    const userCards = currntUserData.map((userData, idx) => {
         return <Grid item xs={2} sm={4} md={4} key={idx}>
-           <UserCard userData={userData} />
-          </Grid>
-    })
+           <UserCard userData={userData} idx={idx} />
+           </Grid>
+      })
 
-    return [
+    return  [
         <Grid container spacing={{ xs: 2, md: 3}} columns={{ xs: 4, sm: 8, md: 12}}>
-              {userCards}
-          </Grid>,
-          <Pagination 
-            color="secondary" 
-            count={Math.ceil(props.userDatas.length / pageContentsCount)} 
-            page={pageNo} 
-            onChange={handleChangePageNo}
-          />
+        {userCards}
+    </Grid>,
+    
+    <Pagination
+    color="secondary"
+    count={Math.ceil(props.userDatas.length / pageContentsCount)}
+    page={pageNo}
+    onChange={handleChangePageNo}
+    />
+
     ]
 }
 
