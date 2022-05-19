@@ -6,7 +6,7 @@ import axios from 'axios';
 import { FormControl, InputLabel,Select, MenuItem} from '@mui/material';
 function WeatherCard(props) {
     const {id} = props;
-    const defaultCityName =localStorage.getItem(id+'_city');
+   /* const defaultCityName =localStorage.getItem(id+'_city');*/
     const [weatherData, setWeatherData] = useState(null);
     const [apiError, setApiError] = useState(null);
     const [selectedCityData, setSelectedCityData] = useState({ name: "안양", lat: 37.41053, lon: 126.91122});
